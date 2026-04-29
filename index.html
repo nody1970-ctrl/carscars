@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>くるまロゴずかん</title>
+    <style>
+        body { font-family: 'Hiragino Kaku Gothic ProN', sans-serif; text-align: center; background-color: #eef9ff; margin: 0; padding: 20px; }
+        h1 { color: #005eb8; font-size: 24px; }
+        .description { font-size: 14px; color: #666; margin-bottom: 20px; }
+        .logo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; max-width: 500px; margin: 0 auto; }
+        .logo-card { background: white; border-radius: 20px; padding: 25px 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); cursor: pointer; border: 3px solid #fff; transition: 0.1s; }
+        .logo-card:active { transform: scale(0.9); background-color: #fffde7; border-color: #ffd600; }
+        .icon-circle { width: 70px; height: 70px; background: #f0f0f0; border-radius: 50%; margin: 0 auto 10px; line-height: 70px; font-size: 20px; color: #999; font-weight: bold; }
+        .name { font-size: 18px; font-weight: bold; color: #333; }
+    </style>
+</head>
+<body>
+
+    <h1>🚗 くるまのロゴずかん 🏎️</h1>
+    <p class="description">マークをおすと、なまえをいうよ！</p>
+
+    <div class="logo-grid">
+        <div class="logo-card" onclick="speak('とよた')">
+            <div class="icon-circle">T</div><div class="name">とよた</div>
+        </div>
+        <div class="logo-card" onclick="speak('ほんだ')">
+            <div class="icon-circle">H</div><div class="name">ほんだ</div>
+        </div>
+        <div class="logo-card" onclick="speak('にっさん')">
+            <div class="icon-circle">N</div><div class="name">にっさん</div>
+        </div>
+        <div class="logo-card" onclick="speak('すばる')">
+            <div class="icon-circle">S</div><div class="name">すばる</div>
+        </div>
+        <div class="logo-card" onclick="speak('まつだ')">
+            <div class="icon-circle">M</div><div class="name">まつだ</div>
+        </div>
+        <div class="logo-card" onclick="speak('すずき')">
+            <div class="icon-circle">S</div><div class="name">すずき</div>
+        </div>
+        <div class="logo-card" onclick="speak('だいはつ')">
+            <div class="icon-circle">D</div><div class="name">だいはつ</div>
+        </div>
+        <div class="logo-card" onclick="speak('いすゞ')">
+            <div class="icon-circle">I</div><div class="name">いすず</div>
+        </div>
+    </div>
+
+    <script>
+        function speak(name) {
+            window.speechSynthesis.cancel(); // 前の音声を止めてすぐ再生
+            const uttr = new SpeechSynthesisUtterance(name);
+            uttr.lang = 'ja-JP';
+            uttr.rate = 0.8;  // ゆっくりめ
+            uttr.pitch = 1.2; // 少し高めの声
+            window.speechSynthesis.speak(uttr);
+        }
+    </script>
+</body>
+</html>

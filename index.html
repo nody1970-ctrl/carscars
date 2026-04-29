@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>くるまロゴずかん</title>
     <style>
-        body { font-family: 'Hiragino Kaku Gothic ProN', sans-serif; text-align: center; background-color: #eef9ff; margin: 0; padding: 20px; }
-        h1 { color: #005eb8; font-size: 24px; }
+        body { font-family: sans-serif; text-align: center; background-color: #f8f9fa; margin: 0; padding: 20px; }
+        h1 { color: #333; font-size: 22px; margin-bottom: 5px; }
         .description { font-size: 14px; color: #666; margin-bottom: 20px; }
-        .logo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; max-width: 500px; margin: 0 auto; }
-        .logo-card { background: white; border-radius: 20px; padding: 25px 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); cursor: pointer; border: 3px solid #fff; transition: 0.1s; }
-        .logo-card:active { transform: scale(0.9); background-color: #fffde7; border-color: #ffd600; }
-        .icon-circle { width: 70px; height: 70px; background: #f0f0f0; border-radius: 50%; margin: 0 auto 10px; line-height: 70px; font-size: 20px; color: #999; font-weight: bold; }
-        .name { font-size: 18px; font-weight: bold; color: #333; }
+        .logo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; max-width: 400px; margin: 0 auto; }
+        .logo-card { background: white; border-radius: 15px; padding: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .logo-card:active { transform: scale(0.95); background-color: #f0f0f0; }
+        .logo-img { width: 100%; height: 80px; object-fit: contain; margin-bottom: 10px; }
+        .name { font-size: 16px; font-weight: bold; color: #444; }
     </style>
 </head>
 <body>
@@ -22,38 +22,38 @@
 
     <div class="logo-grid">
         <div class="logo-card" onclick="speak('とよた')">
-            <div class="icon-circle">T</div><div class="name">とよた</div>
+            <img class="logo-img" src="https://www.toyota.co.jp/jpn/company/history/75years/common/images/text/logo/l051.png" alt="Toyota">
+            <div class="name">とよた</div>
         </div>
         <div class="logo-card" onclick="speak('ほんだ')">
-            <div class="icon-circle">H</div><div class="name">ほんだ</div>
+            <img class="logo-img" src="https://global.honda/content/dam/site/global/brand-policy/images/brand-policy_logo_01.png" alt="Honda">
+            <div class="name">ほんだ</div>
         </div>
         <div class="logo-card" onclick="speak('にっさん')">
-            <div class="icon-circle">N</div><div class="name">にっさん</div>
-        </div>
-        <div class="logo-card" onclick="speak('すばる')">
-            <div class="icon-circle">S</div><div class="name">すばる</div>
+            <img class="logo-img" src="https://www.nissan-global.com/JP/DOCUMENT/ASSETS/LOGO/nissan_logo_identity.png" alt="Nissan">
+            <div class="name">にっさん</div>
         </div>
         <div class="logo-card" onclick="speak('まつだ')">
-            <div class="icon-circle">M</div><div class="name">まつだ</div>
+            <img class="logo-img" src="https://www.mazda.com/globalassets/ja/assets/about/profile/brand/mazda_logo_blue_posi.png" alt="Mazda">
+            <div class="name">まつだ</div>
+        </div>
+        <div class="logo-card" onclick="speak('すばる')">
+            <img class="logo-img" src="https://www.subaru.jp/brand/logo/img/logo_subaru.png" alt="Subaru">
+            <div class="name">すばる</div>
         </div>
         <div class="logo-card" onclick="speak('すずき')">
-            <div class="icon-circle">S</div><div class="name">すずき</div>
-        </div>
-        <div class="logo-card" onclick="speak('だいはつ')">
-            <div class="icon-circle">D</div><div class="name">だいはつ</div>
-        </div>
-        <div class="logo-card" onclick="speak('いすゞ')">
-            <div class="icon-circle">I</div><div class="name">いすず</div>
+            <img class="logo-img" src="https://www.suzuki.co.jp/corporate/img/logo.png" alt="Suzuki">
+            <div class="name">すずき</div>
         </div>
     </div>
 
     <script>
         function speak(name) {
-            window.speechSynthesis.cancel(); // 前の音声を止めてすぐ再生
+            window.speechSynthesis.cancel();
             const uttr = new SpeechSynthesisUtterance(name);
             uttr.lang = 'ja-JP';
-            uttr.rate = 0.8;  // ゆっくりめ
-            uttr.pitch = 1.2; // 少し高めの声
+            uttr.rate = 0.8;
+            uttr.pitch = 1.2;
             window.speechSynthesis.speak(uttr);
         }
     </script>
